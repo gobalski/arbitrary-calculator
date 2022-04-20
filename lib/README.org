@@ -1,4 +1,0 @@
-#+title: Readme
-
-* Arbitrary Calculator
-This is a Commandline Interface to use the GreatBin Library I created, which is a crude implementation of arbitrary precision arithmetic.
