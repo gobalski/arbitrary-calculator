@@ -2,3 +2,26 @@
 
 * Arbitrary Calculator
 This is a Commandline Interface to use the GreatBin Library I created, which is a crude implementation of arbitrary precision arithmetic.
+** Functionality
+Using GreatBin in the back. But display decimal numbers.
+
+ - perform basic operation in a prompt (+,-,*,/)
+   > 2 + 3
+   > 5
+ - call functions from the prompt
+   > PI(prec)
+   > 3.14...
+ - save numbers in Variables
+   > a = 234
+ - change Display mode between GreatBin and dec
+
+** Model-View-Controller Architecture
+*** Model
+GreatBin Library.
+Where the Variables are stored.
+*** View
+show a command prompt.
+expect user input.
+*** Controller
+interpret User Input.
+forward result to View.
