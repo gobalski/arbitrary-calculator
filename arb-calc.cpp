@@ -8,8 +8,8 @@ int main(){
     for (int i = 0; i < 10; i++) {
         v.prompt();
         const auto content { v.getContent() };
-        c.eval( content );
-        v.show();
+        const auto result { c.eval( content ) };
+        v.show( result );
     }
 
     return 0;

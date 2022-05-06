@@ -7,11 +7,14 @@
 #include <sstream>
 #include <vector>
 
-void Controler::eval(const std::string& cmd){
+std::string Controler::eval(const std::string& cmd){
     cmd_str_ = cmd;
     cmd_tokens_ = tokenize(cmd_str_);
+    // for ( auto token : cmd_tokens_ ) std::cout << token << " ";
+    // std::cout << std::endl;
     makeCmd();
-    cmd_.exec();
+    std::cout << "executing command.. " << std::endl;
+    return cmd_->exec();
 }
 
 void Controler::UpperCase(Viewer& v){
@@ -35,7 +38,7 @@ char Controler::getOperator(){
         // check if exactly one operator is in cmd_tokens
         for (auto jt = OPERATORS_.begin(); jt!=OPERATORS_.end(); jt++) {
             if (token[0] == *jt){
-                if (op!='\0') op = token[0];
+                if (op=='\0') op = token[0];
                 else throw std::invalid_argument{"Too many operators.."};
                 tmp_cmd_tokens.erase(tmp_cmd_tokens.begin() + token_nr);
             }
@@ -54,7 +57,9 @@ void Controler::makeCmd(){
     substitute();
     char op { getOperator() };
 
-    if ( '+'==op or '-'==op or '*'==op or '/'==op ) Calculation cmd_ { op, cmd_tokens_ };
+    // std::cout << op << std::endl;
+
+    if ( '+'==op or '-'==op or '*'==op or '/'==op )  this->cmd_ = new Calculation { op, cmd_tokens_ };
     else if ( op=='\0' ) throw std::invalid_argument { "No operator found.." };
 
 }

@@ -2,7 +2,8 @@
 #include<iostream>
 #include<string>
 
-void Viewer::show(){
+void Viewer::show(const std::string& content){
+    this->setContent(content);
     std::cout << this->getContent() << "\n";
 }
 

@@ -7,7 +7,7 @@
 class Command{
     public:
         Command(){};
-        virtual std::string exec();
+        virtual std::string exec() { return "weird.. "; };
 };
 
 
@@ -19,7 +19,7 @@ class Calculation : public Command{
     public:
         Calculation(char, std::vector<std::string>&);
 
-        std::string exec();
+        std::string exec() override;
 };
 
 

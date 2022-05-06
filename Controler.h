@@ -11,13 +11,13 @@ class Controler{
     private:
         std::string cmd_str_ {};
         std::vector<std::string> cmd_tokens_;
-        Command cmd_;
+        Command* cmd_;
         const std::array<char, 4> OPERATORS_ { '+', '-', '*', '/' };
 
     public:
         Controler(){};
 
-        void eval(const std::string&);
+        std::string eval(const std::string&);
 
         /// @brief: takes the command and returns a vector of the form [ operator, operands ..  ]
         std::vector<std::string> tokenize (std::string&);

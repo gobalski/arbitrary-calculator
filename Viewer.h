@@ -14,7 +14,7 @@ class Viewer{
         inline std::string getContent () {return this->content;}
         inline std::string getPrefix () {return this->prefix;}
 
-        void show();
+        void show(const std::string&);
         void prompt();
 
 };
