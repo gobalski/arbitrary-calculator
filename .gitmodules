@@ -1,0 +1,3 @@
+[submodule "GB_lib"]
+	path = GB_lib
+	url = git@github.com:gobalski/PIE
