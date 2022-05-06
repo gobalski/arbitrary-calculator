@@ -7,7 +7,8 @@ int main(){
 
     for (int i = 0; i < 10; i++) {
         v.prompt();
-        c.eval(v.getContent());
+        const auto content { v.getContent() };
+        c.eval( content );
         v.show();
     }
 

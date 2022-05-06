@@ -17,7 +17,7 @@ class Controler{
     public:
         Controler(){};
 
-        void eval(std::string&);
+        void eval(const std::string&);
 
         /// @brief: takes the command and returns a vector of the form [ operator, operands ..  ]
         std::vector<std::string> tokenize (std::string&);

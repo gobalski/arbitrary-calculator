@@ -7,7 +7,7 @@
 #include <sstream>
 #include <vector>
 
-void Controler::eval(std::string& cmd){
+void Controler::eval(const std::string& cmd){
     cmd_str_ = cmd;
     cmd_tokens_ = tokenize(cmd_str_);
     makeCmd();
