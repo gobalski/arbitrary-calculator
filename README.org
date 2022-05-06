@@ -6,13 +6,20 @@ This is a Commandline Interface to use the GreatBin Library I created, which is 
 Using GreatBin in the back. But display decimal numbers.
 
  - perform basic operation in a prompt (+,-,*,/)
+   #+begin_src bash
    > 2 + 3
-   > 5
+   5
+   #+end_src
  - call functions from the prompt
+   #+begin_src bash
    > PI(prec)
-   > 3.14...
+   3.14...
+   #+end_src
  - save numbers in Variables
+   #+begin_src bash
    > a = 234
+   234
+   #+end_src
  - change Display mode between GreatBin and dec
 
 ** Model-View-Controller Architecture
