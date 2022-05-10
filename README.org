@@ -3,35 +3,31 @@
 * Arbitrary Calculator
 This is a Commandline Interface to use the GreatBin Library I created, which is a crude implementation of arbitrary precision arithmetic.
 ** Functionality
-Using GreatBin in the back. But display decimal numbers.
+Using GreatBin in the back and displays the comforting decimal number system. The commands you can give the programm are parsed by spaces, so make sure that you always leave spaces between the operands and operators.
 
-perform basic operation in a prompt (+,-,*,/)
+You can perform basic operation in a prompt (+,-,*,/)
    #+begin_src bash
    > 2 + 3
    5
    #+end_src
+Note that, the conversion from long string literals into the GreatBin number format is currently very slow.
 
-call functions from the prompt
+You can call functions from the prompt
    #+begin_src bash
-   > PI(prec)
+   > PI > precision
    3.14...
    #+end_src
+It is rather strange notation, but I didn't bother to much. The first field is the function name and the second is the parameter, seperated by the ">" operator. There are currently three function available:
+*PI > precision*
+Returns the number Pi, where precision is the number of digits (in the GreatBin System) calculated.
+*EULER > precision*
+Returns the number E, where precision is the number of digits (in the GreatBin System) calculated.
+*FAC > n*
+Returns the n-th faculty.
 
-save numbers in Variables
+You can save numbers in Variables.
    #+begin_src bash
    > a = 234
    234
    #+end_src
-
-change Display mode between GreatBin and dec
-
-** Model-View-Controller Architecture
-*** Model
-GreatBin Library.
-Where the Variables are stored.
-*** View
-show a command prompt.
-expect user input.
-*** Controller
-interpret User Input.
-forward result to View.
+And even use them in your calculations.
