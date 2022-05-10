@@ -5,6 +5,7 @@ This is a Commandline Interface to use the GreatBin Library I created, which is 
 ** Functionality
 Using GreatBin in the back and displays the comforting decimal number system. The commands you can give the programm are parsed by spaces, so make sure that you always leave spaces between the operands and operators.
 
+*** Arithmetic
 You can perform basic operation in a prompt (+,-,*,/)
    #+begin_src bash
    > 2 + 3
@@ -12,19 +13,21 @@ You can perform basic operation in a prompt (+,-,*,/)
    #+end_src
 Note that, the conversion from long string literals into the GreatBin number format is currently very slow.
 
+*** Functions
 You can call functions from the prompt
    #+begin_src bash
    > PI > precision
    3.14...
    #+end_src
 It is rather strange notation, but I didn't bother to much. The first field is the function name and the second is the parameter, seperated by the ">" operator. There are currently three function available:
-*PI > precision*
+**** *PI > precision*
 Returns the number Pi, where precision is the number of digits (in the GreatBin System) calculated.
-*EULER > precision*
+**** *EULER > precision*
 Returns the number E, where precision is the number of digits (in the GreatBin System) calculated.
-*FAC > n*
+**** FAC > n
 Returns the n-th faculty.
 
+*** Assignments
 You can save numbers in Variables.
    #+begin_src bash
    > a = 234
