@@ -13,7 +13,7 @@ std::string Controler::eval(const std::string& cmd){
     // for ( auto token : cmd_tokens_ ) std::cout << token << " ";
     // std::cout << std::endl;
     makeCmd();
-    std::cout << "executing command.. " << std::endl;
+    // std::cout << "executing command.. " << std::endl;
     return cmd_->exec();
 }
 
@@ -50,7 +50,10 @@ char Controler::getOperator(){
 }
 
 void Controler::substitute(){
-
+    for ( auto it=cmd_tokens_.begin(); it!=cmd_tokens_.end(); it++ ){
+        std::string tmp_value { model_->getValueOf(*it) };
+        *it = tmp_value;
+    }
 }
 
 void Controler::makeCmd(){
@@ -58,8 +61,15 @@ void Controler::makeCmd(){
     char op { getOperator() };
 
     // std::cout << op << std::endl;
-
     if ( '+'==op or '-'==op or '*'==op or '/'==op )  this->cmd_ = new Calculation { op, cmd_tokens_ };
+    else if ( '='==op )  this->cmd_ = new Assignment { op, cmd_tokens_, model_ };
+    else if ( '>'==op and cmd_tokens_[0]=="EULER")  this->cmd_ = new Euler { op, cmd_tokens_ };
+    else if ( '>'==op and cmd_tokens_[0]=="FAC")  this->cmd_ = new Factorial { op, cmd_tokens_ };
+    else if ( '>'==op and cmd_tokens_[0]=="PI")  this->cmd_ = new Pi { op, cmd_tokens_ };
+    else if ( op=='\0' and cmd_tokens_[0]=="exit" ) {
+        done_=true;
+        this->cmd_ = new GoodBye();
+    }
     else if ( op=='\0' ) throw std::invalid_argument { "No operator found.." };
 
 }

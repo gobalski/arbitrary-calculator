@@ -1,14 +1,21 @@
 #include "Viewer.h"
 #include "Controler.h"
+#include <stdexcept>
 
 int main(){
-    Controler c {};
+    Model m {};
+    Controler c {&m};
     Viewer v {};
 
-    for (int i = 0; i < 10; i++) {
+    while(!c.done_){
         v.prompt();
         const auto content { v.getContent() };
-        const auto result { c.eval( content ) };
+        std::string result;
+        try {
+            result = c.eval( content );
+        } catch (std::invalid_argument exc) {
+            result = exc.what();
+        }
         v.show( result );
     }
 

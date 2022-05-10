@@ -12,11 +12,12 @@ class Controler{
         std::string cmd_str_ {};
         std::vector<std::string> cmd_tokens_;
         Command* cmd_;
-        const std::array<char, 4> OPERATORS_ { '+', '-', '*', '/' };
-
+        const std::array<char, 6> OPERATORS_ { '+', '-', '*', '/', '=', '>' };
+        Model* model_;
     public:
-        Controler(){};
+        Controler(Model* model):model_(model){};
 
+        bool done_ { false };
         std::string eval(const std::string&);
 
         /// @brief: takes the command and returns a vector of the form [ operator, operands ..  ]
